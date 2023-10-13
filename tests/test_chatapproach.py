@@ -31,21 +31,21 @@ def test_get_messages_from_history():
         model_id="gpt-35-turbo",
         history=[
             {
-                "user": "What happens in a performance review?",
+                "user": "how do we onboard a supplier?",
                 "bot": "During the performance review at Contoso Electronics, the supervisor will discuss the employee's performance over the past year and provide feedback on areas for improvement. They will also provide an opportunity for the employee to discuss their goals and objectives for the upcoming year. The review is a two-way dialogue between managers and employees, and employees will receive a written summary of their performance review which will include a rating of their performance, feedback, and goals and objectives for the upcoming year [employee_handbook-3.pdf].",
             },
-            {"user": "What does a Product Manager do?"},
+            {"user": "What is the hybrid working policy"},
         ],
-        user_content="What does a Product Manager do?",
+        user_content="What is the hybrid working policy?",
     )
     assert messages == [
         {"role": "system", "content": "You are a bot."},
-        {"role": "user", "content": "What happens in a performance review?"},
+        {"role": "user", "content": "how do we onboard a supplier?"},
         {
             "role": "assistant",
             "content": "During the performance review at Contoso Electronics, the supervisor will discuss the employee's performance over the past year and provide feedback on areas for improvement. They will also provide an opportunity for the employee to discuss their goals and objectives for the upcoming year. The review is a two-way dialogue between managers and employees, and employees will receive a written summary of their performance review which will include a rating of their performance, feedback, and goals and objectives for the upcoming year [employee_handbook-3.pdf].",
         },
-        {"role": "user", "content": "What does a Product Manager do?"},
+        {"role": "user", "content": "What is the hybrid working policy?"},
     ]
 
 
@@ -57,17 +57,17 @@ def test_get_messages_from_history_truncated():
         model_id="gpt-35-turbo",
         history=[
             {
-                "user": "What happens in a performance review?",
+                "user": "how do we onboard a supplier?",
                 "bot": "During the performance review at Contoso Electronics, the supervisor will discuss the employee's performance over the past year and provide feedback on areas for improvement. They will also provide an opportunity for the employee to discuss their goals and objectives for the upcoming year. The review is a two-way dialogue between managers and employees, and employees will receive a written summary of their performance review which will include a rating of their performance, feedback, and goals and objectives for the upcoming year [employee_handbook-3.pdf].",
             },
-            {"user": "What does a Product Manager do?"},
+            {"user": "What is the hybrid working policy?"},
         ],
-        user_content="What does a Product Manager do?",
+        user_content="What is the hybrid working policy?",
         max_tokens=10,
     )
     assert messages == [
         {"role": "system", "content": "You are a bot."},
-        {"role": "user", "content": "What does a Product Manager do?"},
+        {"role": "user", "content": "What is the hybrid working policy?"},
     ]
 
 
@@ -79,16 +79,16 @@ def test_get_messages_from_history_truncated_longer():
         model_id="gpt-35-turbo",
         history=[
             {
-                "user": "What happens in a performance review?",
+                "user": "how do we onboard a supplier?",
                 "bot": "During the performance review at Contoso Electronics, the supervisor will discuss the employee's performance over the past year and provide feedback on areas for improvement. They will also provide an opportunity for the employee to discuss their goals and objectives for the upcoming year. The review is a two-way dialogue between managers and employees, and employees will receive a written summary of their performance review which will include a rating of their performance, feedback, and goals and objectives for the upcoming year [employee_handbook-3.pdf].",
             },
             {
                 "user": "Is there a dress code?",
                 "bot": "Yes, there is a dress code at Contoso Electronics. Look sharp! [employee_handbook-1.pdf]",
             },
-            {"user": "What does a Product Manager do?"},
+            {"user": "What is the hybrid working policy?"},
         ],
-        user_content="What does a Product Manager do?",
+        user_content="What is the hybrid working policy?",
         max_tokens=30,
     )
     assert messages == [
@@ -98,5 +98,5 @@ def test_get_messages_from_history_truncated_longer():
             "role": "assistant",
             "content": "Yes, there is a dress code at Contoso Electronics. Look sharp! [employee_handbook-1.pdf]",
         },
-        {"role": "user", "content": "What does a Product Manager do?"},
+        {"role": "user", "content": "What is the hybrid working policy?"},
     ]

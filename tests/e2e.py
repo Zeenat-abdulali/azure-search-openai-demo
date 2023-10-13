@@ -49,7 +49,7 @@ def live_server_url(mock_env, free_port: int) -> Generator[str, None, None]:
 
 def test_home(page: Page, live_server_url: str):
     page.goto(live_server_url)
-    expect(page).to_have_title("GPT + Enterprise data | Sample")
+    expect(page).to_have_title("Phoneix Policy Chatbot")
 
 
 def test_chat(page: Page, live_server_url: str):
@@ -65,14 +65,14 @@ def test_chat(page: Page, live_server_url: str):
 
     # Check initial page state
     page.goto(live_server_url)
-    expect(page).to_have_title("GPT + Enterprise data | Sample")
+    expect(page).to_have_title("Phoneix Policy Chatbot")
     expect(page.get_by_role("heading", name="Chat with your data")).to_be_visible()
     expect(page.get_by_role("button", name="Clear chat")).to_be_disabled()
     expect(page.get_by_role("button", name="Developer settings")).to_be_enabled()
 
     # Ask a question and wait for the message to appear
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").click()
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").fill(
+    page.get_by_placeholder("Type a new question (e.g. What is the dress code?)").click()
+    page.get_by_placeholder("Type a new question (e.g. What is the dress code?)").fill(
         "Whats the dental plan?"
     )
     page.get_by_role("button", name="Ask question button").click()

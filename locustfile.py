@@ -18,9 +18,9 @@ class ChatUser(HttpUser):
                     {
                         "user": random.choice(
                             [
-                                "What is included in my Northwind Health Plus plan that is not in standard?",
-                                "What does a Product Manager do?",
-                                "What happens in a performance review?",
+                                "Can you summarise the environmental policy?",
+                                "WWhat is the hybrid working policy?",
+                                "How do we onboard a supplier?",
                                 "Whats your whistleblower policy?",
                             ]
                         )
@@ -41,7 +41,7 @@ class ChatUser(HttpUser):
             json={
                 "history": [
                     {
-                        "user": "What happens in a performance review?",
+                        "user": "how do we onboard a supplier?",
                         "bot": "During the performance review at Contoso Electronics, the supervisor will discuss the employee's performance over the past year and provide feedback on areas for improvement. They will also provide an opportunity for the employee to discuss their goals and objectives for the upcoming year. The review is a two-way dialogue between managers and employees, and employees will receive a written summary of their performance review which will include a rating of their performance, feedback, and goals and objectives for the upcoming year [employee_handbook-3.pdf].",
                     },
                     {"user": "Does my plan cover eye exams?"},
